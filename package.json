@@ -1,0 +1,21 @@
+{
+  "name": "react-app-backend",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "dependencies": {
+    "express": "^4.17.1",
+    "mongoose": "^6.0.2",
+    "nodemon": "^2.0.12",
+    "prettier": "^2.3.2"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "format": "prettier --write \"src/**/*.{js, jsx}\"",
+    "start": "node app ",
+    "dev": "nodemon app"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}
