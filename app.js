@@ -34,6 +34,7 @@ app.get("/task", async (req, res) => {
 
 // Delete
 app.delete("/task/:id", async (req, res) => {
+  // dont foret the backslash
   const id = req.params.id;
   try {
     await todo.findByIdAndDelete(id);
