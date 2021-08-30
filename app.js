@@ -1,12 +1,12 @@
 const mongoose = require("mongoose");
 const express = require("express");
-
+const cors = require("cors");
 const todo = require("./models/task");
 
 const app = express();
 
 app.use(express.json());
-
+app.use(cors("*"));
 // Create
 app.post("/task", async (req, res) => {
   const { Task } = req.body;
@@ -49,10 +49,13 @@ app.delete("/task/:id", async (req, res) => {
 app.listen(5000, () => {
   console.log("Server is on port 5000");
   mongoose
-    .connect("mongodb+srv://ahmed:ahmed123@cluster0.vqzwd.mongodb.net/test", {
-      useNewUrlParser: true,
-      useUnifiedTopology: true,
-    })
+    .connect(
+      "mongodb+srv://ahmed:ahmed123@cluster0.vqzwd.mongodb.net/ToDoApp",
+      {
+        useNewUrlParser: true,
+        useUnifiedTopology: true,
+      }
+    )
     .then(() => console.log("database connected"))
     .catch((err) => console.log(err));
 });
