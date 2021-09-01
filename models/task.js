@@ -6,6 +6,7 @@ const TaskSchema = new Schema(
       type: String,
       required: [true, "task is a required field and cannot be empty"],
     },
+    Status: Boolean,
   },
   { timestamps: true }
 );
