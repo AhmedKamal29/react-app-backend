@@ -53,7 +53,7 @@ app.put("/task/:id", async (req, res) => {
   }
 });
 
-//sorting
+//readingt the data and sorting
 app.get("/task", async (req, res) => {
   const { sortBy } = req.query;
   let tasks;
@@ -61,6 +61,8 @@ app.get("/task", async (req, res) => {
     tasks = await todo.find().sort({ Priority: 1 });
   } else if (sortBy && sortBy.toLowerCase() === "date") {
     tasks = await todo.find().sort({ createdAt: 1 });
+  } else if (sortBy && sortBy.toLowerCase() === "none") {
+    tasks = await todo.find().sort({ createdAt: -1 });
   } else {
     tasks = await todo.find().sort({ createdAt: -1 });
   }
