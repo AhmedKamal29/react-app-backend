@@ -21,17 +21,6 @@ app.post("/task", async (req, res) => {
   }
 });
 
-//Read
-// app.get("/task", async (req, res) => {
-//   try {
-//     const taskss = await Task.find();
-//     return res.json(taskss);
-//   } catch (err) {
-//     console.log(err);
-//     return res.status(500).json(err);
-//   }
-// });
-
 // Delete
 app.delete("/task/:id", async (req, res) => {
   // dont forget the backslash
@@ -46,6 +35,7 @@ app.delete("/task/:id", async (req, res) => {
   }
 });
 
+// editing the status of the tasks
 app.put("/task/:id", async (req, res) => {
   const id = req.params.id;
   const { Task, Status } = req.body;
@@ -64,8 +54,6 @@ app.put("/task/:id", async (req, res) => {
 });
 
 //sorting
-
-// sort by the timestamp
 app.get("/task", async (req, res) => {
   const { sortBy } = req.query;
   let tasks;
