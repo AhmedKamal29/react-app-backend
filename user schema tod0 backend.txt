@@ -1,0 +1,32 @@
+const { model, Schema } = require("mongoose");
+
+const UserSchema = new Schema(
+  {
+    Firstname: {
+      type: String,
+      required: [true, "task is a required field and cannot be empty"],
+    },
+    Lastname: {
+      type: String,
+      required: [true, "task is a required field and cannot be empty"],
+    },
+    Email: {
+      type: String,
+      validate: {
+        validator: function (v) {
+          return /\d{3}-\d{3}-\d{4}/.test(v);
+        },
+        message: (props) => `${props.value} is not a valid phone number!`,
+      },
+      required: [true, "task is a required field and cannot be empty"],
+    },
+    Password: {
+      type: password,
+      required: [true, "task is a required field and cannot be empty"],
+    },
+  },
+  { timestamps: true }
+);
+
+const Task = model("Task", TaskSchema);
+module.exports = Task;

@@ -8,6 +8,13 @@ const app = express();
 app.use(express.json());
 app.use(cors("*"));
 
+//Login
+app.use("/login", (req, res) => {
+  res.send({
+    token: "test123",
+  });
+});
+
 // Create
 app.post("/task", async (req, res) => {
   const { Task, Priority } = req.body;
@@ -17,7 +24,7 @@ app.post("/task", async (req, res) => {
     return res.json(task);
   } catch (err) {
     console.log(err);
-    return res.res.status(500).json({ error: "something went wrong" });
+    return res.status(500).json({ error: "something went wrong" });
   }
 });
 
@@ -53,7 +60,7 @@ app.put("/task/:id", async (req, res) => {
   }
 });
 
-//readingt the data and sorting
+//reading the data and sorting
 app.get("/task", async (req, res) => {
   const { sortBy } = req.query;
   let tasks;
