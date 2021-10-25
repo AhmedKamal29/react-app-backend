@@ -13,8 +13,8 @@
   "devDependencies": {},
   "scripts": {
     "format": "prettier --write \"src/**/*.{js, jsx}\"",
-    "start": "node app ",
-    "dev": "nodemon app"
+    "start": "node index ",
+    "dev": "nodemon index"
   },
   "keywords": [],
   "author": "",

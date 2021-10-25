@@ -17,6 +17,10 @@ const TaskSchema = new Schema(
       default: 2,
       required: true,
     },
+    user: {
+      type: Schema.Types.ObjectId,
+      ref: "Users",
+    },
   },
   { timestamps: true }
 );
