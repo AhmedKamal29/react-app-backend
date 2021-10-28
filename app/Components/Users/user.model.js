@@ -26,7 +26,7 @@ const UserSchema = new Schema(
       type: String,
       required: true,
     },
-    task: [
+    tasks: [
       {
         type: Schema.Types.ObjectId,
         ref: "Task",

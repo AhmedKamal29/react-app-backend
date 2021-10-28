@@ -11,7 +11,7 @@ module.exports = {
     await task.save();
 
     const userById = await Users.findById(id);
-    userById.task.push(task);
+    userById.tasks.push(task);
     await userById.save();
 
     return res.send(userById);
@@ -48,5 +48,10 @@ module.exports = {
       tasks = await todo.find().sort({ createdAt: -1 });
     }
     return res.json(tasks);
+  },
+  userByTask: async (req, res) => {
+    const id = req.params;
+    const userByTask = await todo.findById(id).populate("user");
+    res.send(userByTask);
   },
 };

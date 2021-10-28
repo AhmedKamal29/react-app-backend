@@ -14,4 +14,9 @@ module.exports = {
       return res.json(user.Name) && res.status(200, "Login successfull");
     }
   },
+  taskByUser: async (req, res) => {
+    const { id } = req.params;
+    const taskByUser = await Users.findById(id).populate("task");
+    res.send(taskByUser);
+  },
 };
